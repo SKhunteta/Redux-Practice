@@ -30,10 +30,12 @@ const reducer = (state = initialState, action) => {
                 results: state.results.concat({id: new Date(), value: state.counter})
             }
         case 'DELETE_RESULT': 
-            const id = 2;
-            state.results.splice(id, 1)
+            //filter takes a function as the input.
+            //filter executes on each function on the array.
+            const updatedArray = state.results.filter((result, index) => index !== id);
             return {
                 ...state,
+                results: newArray
             }
     }
     return state;
