@@ -32,10 +32,11 @@ const reducer = (state = initialState, action) => {
         case 'DELETE_RESULT': 
             //filter takes a function as the input.
             //filter executes on each function on the array.
-            const updatedArray = state.results.filter(result => result.id);
+            const updatedArray = state.results.filter(result => result.id !== action.resultElementId);
             return {
                 ...state,
-                results: newArray
+                //updatedArray is a new array due to filter
+                results: updatedArray
             }
     }
     return state;
